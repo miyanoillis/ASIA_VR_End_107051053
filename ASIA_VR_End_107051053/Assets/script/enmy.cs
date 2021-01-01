@@ -23,14 +23,20 @@ public class enmy : MonoBehaviour
     public int hp = 50;
     [Header("hit")]
     public int hit = 10;
-
-
+    [Header("player score")]
+    public int score = 0;
+    [Header("player score text")]
+    public Text sctext;
+    [Header("enmy num") ,Range(0,20)]
+    public int eny = 10;
+    [Header("end")]
+    public GameObject endd;
 
     private void Awake()
     {
         nav = GetComponent<NavMeshAgent>();
         ani = GetComponent<Animator>();
-
+        sctext.text = score + "--" + eny;
         //player = GameObject.Find("Player").transform;
         nav.speed = spd;
         nav.stoppingDistance = spdstop;
@@ -97,6 +103,13 @@ public class enmy : MonoBehaviour
 
             yield return new WaitForSeconds(sc);
             gameObject.SetActive(false);
+
+            score++;
+            sctext.text = score + "--" + eny;
+            if (score == eny)
+           {
+               endd.SetActive(true);
+           }
         }
     }
 }
