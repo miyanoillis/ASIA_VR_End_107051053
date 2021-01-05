@@ -29,6 +29,8 @@ public class enmy : MonoBehaviour
     public Text sctext;
     [Header("enmy num") ,Range(0,20)]
     public int eny = 10;
+    [Header("start")]
+    public bool start = false;
     [Header("end")]
     public GameObject endd;
 
@@ -45,8 +47,11 @@ public class enmy : MonoBehaviour
     public void Update()
     {
         StartCoroutine(diee());
+        if(hp > 0 && start == true)
+        {
         track();
         attack();
+        }
     }
 
     public void attack()
@@ -109,7 +114,7 @@ public class enmy : MonoBehaviour
             if (score == eny)
            {
                endd.SetActive(true);
-           }
+            }
         }
     }
 }
