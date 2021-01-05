@@ -63,7 +63,7 @@ public class enmy : MonoBehaviour
             timer += Time.deltaTime;
 
             Vector3 pos = player.position;
-            pos.y = player.position.y;
+            pos.y = transform.position.y;
             transform.LookAt(pos);
 
             if (timer >= cd)
