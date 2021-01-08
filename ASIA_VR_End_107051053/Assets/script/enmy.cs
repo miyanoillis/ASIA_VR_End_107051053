@@ -2,6 +2,7 @@
 using UnityEngine.AI;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class enmy : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class enmy : MonoBehaviour
     public Animator ani;
     public float cd = 2f;
     private float timer;
+    public AudioClip sdin;
+    public AudioClip atkin;
+    private AudioSource aud;
 
     [Header("speed"), Range(0f, 50f)]
     public float spd = 3;
@@ -36,6 +40,7 @@ public class enmy : MonoBehaviour
 
     private void Awake()
     {
+        aud = GetComponent<AudioSource>();
         nav = GetComponent<NavMeshAgent>();
         ani = GetComponent<Animator>();
         sctext.text = score + "--" + eny;
@@ -70,7 +75,8 @@ public class enmy : MonoBehaviour
             {
             ani.SetTrigger("atk");
                 timer = 0;
-            }
+                    aud.PlayOneShot(atkin);
+                }
         }
         }
        
@@ -98,6 +104,7 @@ public class enmy : MonoBehaviour
     {
         hp -= hit;
         text.text = ""+hp;
+        aud.PlayOneShot(sdin);
     }
 
     private IEnumerator diee()
@@ -114,6 +121,7 @@ public class enmy : MonoBehaviour
             if (score == eny)
            {
                endd.SetActive(true);
+                SceneManager.LoadScene("vrgame1");
             }
         }
     }
