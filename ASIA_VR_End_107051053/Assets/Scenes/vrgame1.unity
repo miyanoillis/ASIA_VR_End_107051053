@@ -5324,5 +5324,10 @@ PrefabInstance:
       propertyPath: atkin
       value: 
       objectReference: {fileID: 8300000, guid: cab735831b0779548a789ae609fbdfb8, type: 3}
+    - target: {fileID: 8786167248003315647, guid: d58d9877a678c8242b784c538b251bcd,
+        type: 3}
+      propertyPath: spd
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d58d9877a678c8242b784c538b251bcd, type: 3}
